@@ -11,7 +11,7 @@
 <!--        scope default : singleton-->
     </bean>
 
-    <bean id="person1" class="com.mycatgib.springstudy.di.basic.Person" scope="singleton">
+    <bean id="person2" class="com.mycatgib.springstudy.di.basic.Person" scope="prototype">
         <property name="name" value="김가영"></property>
         <property name="age" value="23"></property>
         <property name="address" value="부산시 수영구 민락동"></property>
