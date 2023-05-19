@@ -15,21 +15,28 @@
     <bean id="afterReturningAdvice" class="com.mycatgib.springstudy.aop.basic1.AfterReturningAdvice" scope="singleton"></bean>
     <bean id="beforeAdvice" class="com.mycatgib.springstudy.aop.basic1.BeforeAdvice" scope="singleton"></bean>
 
+    <bean id="timeAdvice" class="com.mycatgib.springstudy.aop.basic1.LoggerAdvice" scope="singleton"></bean>
 
 
     <aop:config>
-        <aop:aspect  id="before" ref="beforeAdvice">
-            <aop:before method="beforeMethod" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>
+        <aop:aspect id="time" ref="timeAdvice">
+            <aop:around method="loggerProcess" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>
         </aop:aspect>
-
-        <aop:aspect  id="after" ref="afterAdvice">
-            <aop:after method="afterMethod" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>
-        </aop:aspect>
-
-        <aop:aspect  id="afterReturn" ref="afterReturningAdvice">
-            <aop:after-returning method="afterReturningMethod" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>
-        </aop:aspect>
-
-
     </aop:config>
+
+
+<!--    <aop:config>-->
+<!--        <aop:aspect  id="before" ref="beforeAdvice">-->
+<!--            <aop:before method="beforeMethod" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>-->
+<!--        </aop:aspect>-->
+
+<!--        <aop:aspect  id="after" ref="afterAdvice">-->
+<!--            <aop:after method="afterMethod" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>-->
+<!--        </aop:aspect>-->
+
+<!--        <aop:aspect  id="afterReturn" ref="afterReturningAdvice">-->
+<!--            <aop:after-returning method="afterReturningMethod" pointcut= "execution(public * com.mycatgib.springstudy.aop.basic1.Dao*.*(..))"/>-->
+<!--        </aop:aspect>-->
+
+<!--    </aop:config>-->
 </beans>
